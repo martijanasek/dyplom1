@@ -1,3 +1,4 @@
+import 'package:dyplom/widgets/registration.dart';
 import 'package:flutter/material.dart';
 
 class Start extends StatelessWidget {
@@ -30,7 +31,12 @@ class Start extends StatelessWidget {
             ),
             textColor: Color.fromRGBO(248, 247, 242, 1),
             child: Text('Zarejestruj'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Registration()),
+              );
+            },
           ),
         ],
       ),
