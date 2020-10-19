@@ -1,44 +1,72 @@
 import 'package:dyplom/widgets/registration.dart';
 import 'package:flutter/material.dart';
+import 'language.dart';
 
 class Start extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      color: Color.fromRGBO(0, 87, 63, 1),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            'assets/images/fruit-tree.png',
-            color: Color.fromRGBO(155, 227, 191, 1),
-            height: 200,
-            width: 200,
-          ),
-          OutlineButton(
-            borderSide: BorderSide(
-              color: Color.fromRGBO(248, 247, 242, 1),
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: Theme.of(context).primaryColor,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Language(),
+              ],
             ),
-            textColor: Color.fromRGBO(248, 247, 242, 1),
-            child: Text('Zaloguj'),
-            onPressed: () {},
-          ),
-          OutlineButton(
-            borderSide: BorderSide(
-              color: Color.fromRGBO(248, 247, 242, 1),
-            ),
-            textColor: Color.fromRGBO(248, 247, 242, 1),
-            child: Text('Zarejestruj'),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Registration()),
-              );
-            },
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/fruit-tree.png',
+                      color: Theme.of(context).cardColor,
+                      height: 200,
+                      width: 200,
+                    ),
+                    OutlineButton(
+                      borderSide: BorderSide(
+                        color: Theme.of(context).accentColor,
+                      ),
+                      textColor: Theme.of(context).accentColor,
+                      child: Text(
+                        'Zaloguj',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                    OutlineButton(
+                      borderSide: BorderSide(
+                        color: Theme.of(context).accentColor,
+                      ),
+                      textColor: Theme.of(context).accentColor,
+                      child: Text(
+                        'Zarejestruj',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Registration()),
+                        );
+                      },
+                    ),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

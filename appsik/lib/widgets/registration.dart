@@ -16,7 +16,7 @@ class _RegistrationState extends State<Registration> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: Color.fromRGBO(0, 87, 63, 1),
+        color: Theme.of(context).accentColor,
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -45,12 +45,30 @@ class _RegistrationState extends State<Registration> {
                     ],
                   ),
                 ),
-                OutlineButton(
-                  borderSide: BorderSide(
-                    color: Color.fromRGBO(248, 247, 242, 1),
+                RaisedButton(
+                  color: Theme.of(context).primaryColor,
+                  textColor: Theme.of(context).accentColor,
+                  child: Text(
+                    'Potwierdź',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  textColor: Color.fromRGBO(248, 247, 242, 1),
-                  child: Text('Powrót'),
+                  elevation: 5,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                RaisedButton(
+                  color: Theme.of(context).disabledColor,
+                  textColor: Theme.of(context).accentColor,
+                  child: Text(
+                    'Powrót',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  elevation: 5,
                   onPressed: () {
                     Navigator.pop(context);
                   },
