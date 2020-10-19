@@ -12,48 +12,40 @@ class _LanguageState extends State<Language> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            border: _isLanguageChosen == 'pl'
-                ? Border.all(
-                    color: Theme.of(context).backgroundColor,
-                    width: 5,
-                  )
-                : null,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            icon: Image.asset(
-              'assets/images/poland.png',
-            ),
-            iconSize: 25,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FloatingActionButton(
+            heroTag: "pl",
             onPressed: () {
               setState(() {
                 _isLanguageChosen = 'pl';
               });
             },
+            backgroundColor: _isLanguageChosen == 'pl'
+                ? Theme.of(context).cardColor
+                : Theme.of(context).primaryColor,
+            child: Image.asset(
+              'assets/images/poland.png',
+              height: 40,
+            ),
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            border: _isLanguageChosen == 'en'
-                ? Border.all(
-                    color: Theme.of(context).backgroundColor,
-                    width: 5,
-                  )
-                : null,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            icon: Image.asset(
-              'assets/images/united-kingdom.png',
-            ),
-            iconSize: 25,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FloatingActionButton(
+            heroTag: "en",
             onPressed: () {
               setState(() {
                 _isLanguageChosen = 'en';
               });
             },
+            backgroundColor: _isLanguageChosen == 'en'
+                ? Theme.of(context).cardColor
+                : Theme.of(context).primaryColor,
+            child: Image.asset(
+              'assets/images/united-kingdom.png',
+              height: 40,
+            ),
           ),
         ),
       ],
