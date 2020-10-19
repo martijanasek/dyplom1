@@ -1,5 +1,6 @@
 import 'package:dyplom/widgets/registration.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'language.dart';
 
 class Start extends StatelessWidget {
@@ -35,11 +36,11 @@ class Start extends StatelessWidget {
                       ),
                       textColor: Theme.of(context).accentColor,
                       child: Text(
-                        'Zaloguj',
+                        ('login'),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
+                      ).tr(),
                       onPressed: () {},
                     ),
                     OutlineButton(
@@ -48,11 +49,11 @@ class Start extends StatelessWidget {
                       ),
                       textColor: Theme.of(context).accentColor,
                       child: Text(
-                        'Zarejestruj',
+                        ('sign-up'),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
+                      ).tr(),
                       onPressed: () {
                         Navigator.push(
                           context,

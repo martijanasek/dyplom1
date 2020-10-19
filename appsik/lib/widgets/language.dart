@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Language extends StatefulWidget {
   @override
@@ -19,6 +20,7 @@ class _LanguageState extends State<Language> {
             onPressed: () {
               setState(() {
                 _isLanguageChosen = 'pl';
+                context.locale = Locale('pl', 'PL');
               });
             },
             backgroundColor: _isLanguageChosen == 'pl'
@@ -37,6 +39,7 @@ class _LanguageState extends State<Language> {
             onPressed: () {
               setState(() {
                 _isLanguageChosen = 'en';
+                context.locale = Locale('en', 'US');
               });
             },
             backgroundColor: _isLanguageChosen == 'en'
