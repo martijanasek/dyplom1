@@ -1,6 +1,6 @@
+import 'package:dyplom/models/size-config.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:intl/intl.dart';
 
 class Registration extends StatefulWidget {
   @override
@@ -8,74 +8,96 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
-  final GlobalKey<FormBuilderState> _fbKey = GlobalKey<FormBuilderState>();
-
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: Theme.of(context).accentColor,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: <Widget>[
-                FormBuilder(
-                  key: _fbKey,
-                  initialValue: {
-                    'date': DateTime.now(),
-                  },
-                  autovalidate: true,
-                  child: Column(
-                    children: <Widget>[
-                      FormBuilderTextField(
-                        attribute: 'text',
-                        validators: [FormBuilderValidators.required()],
-                        decoration: InputDecoration(labelText: 'Who are you?'),
-                      ),
-                      FormBuilderDateTimePicker(
-                        attribute: "date",
-                        inputType: InputType.date,
-                        validators: [FormBuilderValidators.required()],
-                        format: DateFormat("dd-MM-yyyy"),
-                        decoration: InputDecoration(labelText: "Date of Birth"),
-                      ),
-                    ],
-                  ),
-                ),
-                RaisedButton(
-                  color: Theme.of(context).primaryColor,
-                  textColor: Theme.of(context).accentColor,
-                  child: Text(
-                    'Potwierdź',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+        child: Stack(
+          children: [
+            Positioned(
+              height: SizeConfig.screenHeight,
+              top: SizeConfig.paddingTop,
+              width: SizeConfig.screenWidth,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: TextField(
+                            cursorColor: Theme.of(context).primaryColor,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: ('username').tr(),
+                                suffixIcon: InkWell(
+                                  child: Icon(Icons.clear),
+                                )),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: TextField(
+                            cursorColor: Theme.of(context).primaryColor,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: ('password').tr(),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: TextField(
+                            cursorColor: Theme.of(context).primaryColor,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: ('confirm-password').tr(),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  elevation: 5,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                RaisedButton(
-                  color: Theme.of(context).disabledColor,
-                  textColor: Theme.of(context).accentColor,
-                  child: Text(
-                    'Powrót',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  RaisedButton(
+                    color: Theme.of(context).primaryColor,
+                    textColor: Theme.of(context).accentColor,
+                    child: Text(
+                      ('confirm'),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ).tr(),
+                    elevation: 5,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  elevation: 5,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
+                  RaisedButton.icon(
+                    icon: Icon(Icons.arrow_back),
+                    color: Theme.of(context).disabledColor,
+                    textColor: Theme.of(context).accentColor,
+                    label: Text(
+                      ('back'),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ).tr(),
+                    elevation: 5,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

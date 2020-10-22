@@ -1,4 +1,9 @@
 {
     "login": "Zaloguj",
-    "sign-up": "Zarejestruj"
+    "sign-up": "Zarejestruj",
+    "confirm": "Potwierdź",
+    "back": "Powrót",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "confirm-password": "Potwierdź hasło"
 }

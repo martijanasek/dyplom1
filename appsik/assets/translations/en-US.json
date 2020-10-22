@@ -1,4 +1,9 @@
 {
     "login": "Log in",
-    "sign-up": "Sign up"
+    "sign-up": "Sign up",
+    "confirm": "Confirm",
+    "back": "Back",
+    "username": "Username",
+    "password": "Password",
+    "confirm-password": "Confirm password"
 }
